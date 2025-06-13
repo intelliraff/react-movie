@@ -1,4 +1,3 @@
-
 import '/Users/pushpanjaniambadipudi/react-movie/react-movie/src/css/MovieCard.css'
 import { useMovieContext } from '../contextss/MovieContext';
 
@@ -19,7 +18,15 @@ function MovieCard({movie}){
 
 
             <div className="movie-poster">
-            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+            {movie.poster_path ? (
+                    <img
+                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                        alt={movie.title}
+                    />
+                    ) : (
+                    <div className="no-poster">No image available</div>
+                    )}
+
                 <div className="movie-overlay">
                     <button className={`favorite-btn ${isMovieFavorite? "active":""}`} onClick={onlike}>♥</button>
                 </div>
