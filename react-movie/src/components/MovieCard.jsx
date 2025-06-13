@@ -20,9 +20,10 @@ function MovieCard({movie}){
             <div className="movie-poster">
             {movie.poster_path ? (
                     <img
-                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                        alt={movie.title}
-                    />
+                    src={`${import.meta.env.VITE_IMAGE_BASE_URL}${movie.poster_path}`}
+                    alt={movie.title}
+                  />
+                  
                     ) : (
                     <div className="no-poster">No image available</div>
                     )}
